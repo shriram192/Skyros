@@ -26,7 +26,11 @@ import subprocess
 import argparse
 from vr import vr
 
-AWS_UBUNTU_USER = 'sarthakm'
+user = ""
+with open(os.path.expanduser("~/Skyros/user")) as f:
+    user = f.readline().strip()
+
+AWS_UBUNTU_USER = user
 AWS_REGION = 'us-east-1'
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 PEM_DIR = CURR_DIR + '/pems'
@@ -68,7 +72,7 @@ def check_context_sanity(context):
 	assert context.cluster in ['us-east-1']
 	assert context.sync in ['yes', 'no']
 	assert context.leader_reads in ['yes', 'no']
-	assert context.user in ['ubuntu', 'sarthakm']
+	assert context.user in ['ubuntu', user]
 	assert context.workload in ['t', 'w', 'a', 'b', 'c', 'd', 'f', 'm', 'e', 'n', 'r', 'fs', 'fsar', 'nilz', 'nilu', 'compat', 'compatconflict', 'nc']
 	if context.code == 'orig' and context.sync == 'yes':
 		assert context.leader_reads == 'yes'

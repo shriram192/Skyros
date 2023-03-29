@@ -30,9 +30,13 @@ import time
 #second is config file path
 #third is num clients
 #fourth is num operations
+user = ""
+with open(os.path.expanduser("~/Skyros/user")) as f:
+    user = f.readline().strip()
 
 def invoke_remote_cmd(machine_ip, pdir, command):
-	cmd = 'ssh {0}@{1} \'sh -c \"{2}\" &\''.format("sarthakm", machine_ip, command)
+	global user
+	cmd = 'ssh {0}@{1} \'sh -c \"{2}\" &\''.format(user, machine_ip, command)
 	# print (cmd)
 	p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	out, err = p.communicate()

@@ -28,13 +28,17 @@ import copy
 import random
 import threading
 
-AWS_UBUNTU_USER = 'sarthakm'
+user = ""
+with open(os.path.expanduser("~/Skyros/user")) as f:
+	user = f.readline().strip()
+
+AWS_UBUNTU_USER = user
 AWS_REGION = 'us-east-1'
 PEM_DIR = '../../pems'
 
 machines = []
 
-repo_base = '/users/sarthakm/Skyros'
+repo_base = '/users/'+user+'/Skyros'
 desired_branch = 'master'
 
 def run_remote(machine_ip, command):
