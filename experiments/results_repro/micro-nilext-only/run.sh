@@ -4,7 +4,7 @@
 r_medium='data'
 r_time=10 # time in seconds to run each single point in the graph
 r_cluster='us-east-1' # aws region
-r_user='sarthakm' # aws user
+r_user='sa84' # aws user
 r_system='vr' #VR for all protocol variants including Skyros
 workload='t' #write-only workload for throughput latency graphs
 

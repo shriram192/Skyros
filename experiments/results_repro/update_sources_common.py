@@ -57,6 +57,7 @@ def parallel_start_and_join(threads):
 	map(lambda t: t.start(), threads)
 	map(lambda t: t.join(), threads)
 
+
 def update_machine(src_machine, desired_branch):
 	run_remote(src_machine, "cd {0}/experiments; sudo bash udp_parms".format(repo_base))
 	run_remote(src_machine, "cd {0}; git fetch; git checkout {1}; git pull origin {1}".format(repo_base, desired_branch))
@@ -70,16 +71,17 @@ def update_machine(src_machine, desired_branch):
 		run_remote(src_machine, "cd {0}/src/curp; make -j16;".format(repo_base))
 		run_remote(src_machine, "cd {0}/src/skyroscomm; make -j16;".format(repo_base))
 
-	o,e = invoke_remote_cmd(src_machine, "cd {0}; git status | grep \"On branch\";".format(repo_base))
-        o = o.strip().replace('\n', '')
-        expected = "On branch {0}".format(desired_branch)
-        assert o == expected
-        
+	o, e = invoke_remote_cmd(src_machine, "cd {0}; git status | grep \"On branch\";".format(repo_base))
+	o = o.strip().replace('\n', '')
+	expected = "On branch {0}".format(desired_branch)
+	assert o == expected
+
+       
 def main(desired_branch):
 	with open('../../external_ips', 'r') as ip_reader:
 		for line in ip_reader:
 			line = line.replace('\n','').replace('\t','')
 			machines.append(line)
 
-	print machines
+	print(machines)
 	parallel_start_and_join([threading.Thread(target=update_machine, args=(str(m), str(desired_branch))) for m in machines])

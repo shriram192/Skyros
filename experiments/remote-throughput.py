@@ -56,6 +56,7 @@ def run_remote(machine_ip, user, command):
 
 def copy_file_remote(machine_ip, user, from_file_path, to_file_path):
 	cmd = 'scp {0} {1}@{2}:{3}'.format(from_file_path, AWS_UBUNTU_USER, machine_ip, to_file_path)
+	print(cmd)
 	os.system(cmd)
 
 def copy_file_from_remote(machine_ip, user, from_file_path, to_file_path):
