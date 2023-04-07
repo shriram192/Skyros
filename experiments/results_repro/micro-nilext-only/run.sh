@@ -23,7 +23,7 @@ for n in 2 5 10 15 20 40; do
 for i in 1; do
 for code in orig; do
         # set the batch parameter to 1 for no batching (for paxos-nobatch variant)
-        ../../remote-throughput.py --medium $r_medium --code $code --time $r_time --run $i --cluster $r_cluster --sync no --user $r_user --workload $workload --num_nodes 4 --target_system_name $r_system --sync_rep_factor 5 --num_clients $n --leader_reads yes --batch 1
+        ../../remote-throughput.py --medium $r_medium --code $code --time $r_time --run $i --cluster $r_cluster --sync no --user $r_user --workload $workload --num_nodes 5 --target_system_name $r_system --sync_rep_factor 5 --num_clients $n --leader_reads yes --batch 1
         sleep 2
 done
 done
