@@ -50,9 +50,9 @@ def invoke_remote_cmd(machine_ip, user, command):
 	return (out, err)
 
 def run_remote(machine_ip, user, command):
-  cmd = 'ssh {0}@{1} \'sh -c \"{2}\" &\''.format(AWS_UBUNTU_USER, machine_ip, command)
-  print (cmd)
-  os.system(cmd)
+	cmd = 'ssh {0}@{1} \'sh -c \"{2}\" &\''.format(AWS_UBUNTU_USER, machine_ip, command)
+	print (cmd)
+	os.system(cmd)
 
 def copy_file_remote(machine_ip, user, from_file_path, to_file_path):
 	cmd = 'scp {0} {1}@{2}:{3}'.format(from_file_path, AWS_UBUNTU_USER, machine_ip, to_file_path)

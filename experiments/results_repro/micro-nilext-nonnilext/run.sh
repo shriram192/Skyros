@@ -3,7 +3,7 @@
 r_medium='data'
 r_time=60 # time in seconds to run each single point in the graph
 r_cluster='us-east-1' # aws region
-r_user='ubuntu' # aws user
+r_user='sa84' # aws user
 r_system='vr' #VR for all protocol variants including Skyros
 workload='e' #nilext and non-nilext writes
 
@@ -14,7 +14,7 @@ workload='e' #nilext and non-nilext writes
 n=10 # 10 clients for this experiment
 
 # initial setup
-chmod 0400 ../../pems/$r_cluster.pem
+#chmod 0400 ../../pems/$r_cluster.pem
 
 ./update_sources.py
 
