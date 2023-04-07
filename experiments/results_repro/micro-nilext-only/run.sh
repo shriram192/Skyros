@@ -14,7 +14,7 @@ workload='t' #write-only workload for throughput latency graphs
 
 
 # initial setup
-chmod 0400 ../../pems/$r_cluster.pem
+#chmod 0400 ../../pems/$r_cluster.pem
 
 ./update_sources.py
 
