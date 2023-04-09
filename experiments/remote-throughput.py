@@ -329,7 +329,6 @@ if __name__ == '__main__':
 		for i in context.servers:
 			copy_file_from_remote(ips[i], context.user, "/mydata/tmp/vrlog", "./vrlog.{0}".format(i))
 		command = 'rm -rf {0}; mkdir {0}; mv {1} {0}; mv ./vrlog* {0}; mv {2}/latencies.*.raw {0}'.format(context.result_dir, outfile, context.remote_perf_dir)
-		print(command)
 		os.system(command)
 
 	for i in context.servers:
