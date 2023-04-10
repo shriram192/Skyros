@@ -5,6 +5,7 @@ import subprocess
 import argparse
 from statistics import mean, stdev
 
+
 def invoke_cmd(command):
 	p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	out, err = p.communicate()
@@ -50,16 +51,17 @@ for c in clients:
 			assert len(v) == 11
 			tput_sum += (float(v[-5])/float(v[-2]))'''
 
-		out,err = invoke_cmd('cat {0} | grep Average'.format(resfile))
+		out, err = invoke_cmd('cat {0} | grep Average'.format(resfile))
 		out = out.split('\n')
 		out = list(filter(lambda x: (len(x) > 0), out))
-                if not c == len(out):
-                    print resfile, len(out)
+		if not c == len(out):
+			print(resfile, len(out))
 		#print out
 		avg_lat = 0.0
 		for o in out:
 			v = o.split(' ')
 			v = list(filter(lambda x: (len(x) > 0), v))
+			print(v)
 			assert len(v) == 12
 			avg_lat += (float(v[-4]))
 		avg_lat /= c
@@ -71,4 +73,4 @@ for c in clients:
 		#print tput_sum,avg_lat,c
 		#sys.exit(0)
 	#
-	print c, mean(t_put_total)/1000.0, mean(avg_lat_total), t_put_total#, stdev(t_put_total)/1000.0
+	print(c, mean(t_put_total)/1000.0, mean(avg_lat_total), t_put_total) #, stdev(t_put_total)/1000.0
