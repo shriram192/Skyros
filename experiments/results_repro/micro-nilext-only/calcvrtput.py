@@ -28,7 +28,7 @@ else:
     clients= [2, 5, 12, 25, 35, 40, 50, 70, 100]
 
 d = sys.argv[2]
-base_file = d + "/{0}.vr.{1}.data.no.5.yes.0.{2}.{3}.dir/{0}.vr.{1}.data.no.5.yes.0.{2}.{3}"
+base_file = d + "/{0}.vr.{1}.data.no.3.yes.0.{2}.{3}.dir/{0}.vr.{1}.data.no.3.yes.0.{2}.{3}"
 
 for c in clients:
 	t_put_total = []
@@ -55,7 +55,7 @@ for c in clients:
 		print(out)
 
 		out = out.split('\n')
-
+		
 		out = list(filter(lambda x: (len(x) > 0), out))
 
 		print(out)
