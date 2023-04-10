@@ -52,13 +52,10 @@ for c in clients:
 			tput_sum += (float(v[-5])/float(v[-2]))'''
 
 		out, err = invoke_cmd('cat {0} | grep Average'.format(resfile))
-		print(out)
 
 		out = out.split('\n')
 		
 		out = list(filter(lambda x: (len(x) > 0), out))
-
-		print(out)
 
 		if not c == len(out):
 			print(resfile, len(out))
@@ -71,12 +68,9 @@ for c in clients:
 			assert len(v) == 12
 			avg_lat += (float(v[-4]))
 		avg_lat /= c
-		avg_lat /= 1000.0 #ns to us
+		avg_lat /= 1000.0
 		tput_sum = (1000*1000*c)/avg_lat
-		#print 'Throughput for {0} clients: {1}; Avg Latency: {2}'.format(c, tput_sum, avg_lat) 
 		t_put_total.append(tput_sum)
 		avg_lat_total.append(avg_lat)
-		#print tput_sum,avg_lat,c
-		#sys.exit(0)
 	#
-	print(c, mean(t_put_total)/1000.0, mean(avg_lat_total), t_put_total) #, stdev(t_put_total)/1000.0
+	print(c, mean(t_put_total)/1000.0, mean(avg_lat_total), t_put_total)
