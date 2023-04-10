@@ -52,11 +52,17 @@ for c in clients:
 			tput_sum += (float(v[-5])/float(v[-2]))'''
 
 		out, err = invoke_cmd('cat {0} | grep Average'.format(resfile))
+		print(out)
+
 		out = out.split('\n')
+		
 		out = list(filter(lambda x: (len(x) > 0), out))
+
+		print(out)
+
 		if not c == len(out):
 			print(resfile, len(out))
-		#print out
+
 		avg_lat = 0.0
 		for o in out:
 			v = o.split(' ')
