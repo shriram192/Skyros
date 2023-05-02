@@ -20,12 +20,12 @@ code = sys.argv[1]
 run_ids =[ '1']
 clients = []
 if code == 'orignobatch':
-    clients = [2, 5, 10, 15, 20, 40]
+    clients = [2, 5, 10, 20]
 elif code == 'rtop':
-    clients= [2, 5, 12, 15, 25, 35, 50, 70, 100]
+    clients = [2, 5, 10, 20]
 else:
     assert code == 'orig'
-    clients= [2, 5, 12, 25, 35, 40, 50, 70, 100]
+    clients = [2, 5, 10, 20]
 
 d = sys.argv[2]
 base_file = d + "/{0}.vr.{1}.data.no.3.yes.0.{2}.{3}.dir/{0}.vr.{1}.data.no.3.yes.0.{2}.{3}"
