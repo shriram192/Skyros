@@ -140,7 +140,7 @@ class vr(SystemUnderTest):
 		return None
 
 	def workload_command(self, context, num_clients):
-		ops_per_client = 2000000
+		ops_per_client = 20000
 		assert ops_per_client > 0
 		if context.workload == 'm' or context.workload == 'e' or  context.workload == 'n':
 			workload_trace_prefix = context.workload_trace_prefix

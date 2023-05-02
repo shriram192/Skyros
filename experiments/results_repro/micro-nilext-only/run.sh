@@ -19,7 +19,7 @@ workload='t' #write-only workload for throughput latency graphs
 ./update_sources.py
 
 # paxos (no batch)
-for n in 2 5 10 15 20 40; do
+for n in 2 5 10 20; do
 for i in 1; do
 for code in orig; do
         # set the batch parameter to 1 for no batching (for paxos-nobatch variant)
@@ -34,7 +34,7 @@ mv ../../$workload.$r_system.orignobatch.* .
 
 
 # paxos
-for n in 2 5 12 25 35 40 50 70 100; do
+for n in 2 5 10 20; do
 for i in 1; do
 for code in orig; do
         # set the batch parameter to 20 batched Paxos...this is the value for which paxos performed the best
@@ -49,7 +49,7 @@ mv ../../$workload.$r_system.orig.* .
 
 
 # Skyros
-for n in 2 5 12 15 25 35 50 70 100; do
+for n in 2 5 10 20; do
 for i in 1; do
 for code in rtop; do
         # set the batch parameter to 20 batched Paxos...this is the value for which paxos performed the best
